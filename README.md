@@ -2,7 +2,7 @@
 使用關鍵字構建搜尋條件：
 系統會根據用戶提供的city（所在城市）、subject （欲補習科目）和 other （其他要求）字段來組合搜尋條件，並使用這些條件進行 Google 搜尋。搜尋結果會返回以該條件進行權重分數計算後排列的補習班列表。
 發送搜尋請求：
-系統構建好搜尋 URL（如 "https://www.google.com/search?q=citysubjectother 補習班"）後，使用 Jsoup 發送 HTTP 請求並解析返回的 HTML 頁面。
+系統構建好搜尋 URL（如 "https://www.google.com/search?q=citysubjectother補習班"）後，使用 Jsoup 發送 HTTP 請求並解析返回的 HTML 頁面。
 解析搜尋結果：
 在搜尋結果中，系統解析出 h3標籤的內容，這些標籤通常包含搜索結果的標題，並且抓取該標題的連結。
 生成補習班對象並評分：

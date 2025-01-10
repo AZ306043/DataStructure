@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>補YerMoore補習班搜尋系統</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        main {
+            padding: 2rem;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .results {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .school {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fafafa;
+        }
+
+        .school h3 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .school p {
+            margin: 0.5rem 0;
+            font-size: 1.1rem;
+        }
+
+        .special-choice {
+            color: #ff9800;
+            font-weight: bold;
+        }
+
+        .score {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        /* 處理過長網址 */
+        .school a {
+            display: block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            max-width: 100%; /* 確保不會超出容器 */
+            word-wrap: break-word; /* 換行處理 */
+        }
+
+        /* 讓長網址自動換行並增加空白區域 */
+        .school p a {
+            word-wrap: break-word;
+            white-space: normal;
+            overflow-wrap: break-word;
+            word-break: break-word;
+            max-width: 100%;
+            display: inline-block;
+            line-height: 1.5rem;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            header {
+                padding: 0.5rem;
+            }
+
+            .results {
+                padding: 1.5rem;
+            }
+
+            .school h3 {
+                font-size: 1.3rem;
+            }
+
+            .school p {
+                font-size: 1rem;
+            }
+
+            .score {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 0.5rem;
+            }
+
+            .results {
+                padding: 1rem;
+            }
+
+            .school h3 {
+                font-size: 1.1rem;
+            }
+
+            .school p {
+                font-size: 0.9rem;
+            }
+
+            .score {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>搜尋結果</h1>
+    </header>
+    <main>
+        <div class="results">
+            <ul>
+                <!-- 顯示搜尋結果 -->
+                <li th:each="school : ${schools}" class="school">
+                    <h3 th:text="${school.name}">學校名稱</h3>
+                    <p><a th:href="${school.url}" th:text="${school.url}">學校網址</a></p>
+                    <p class="score" th:text="'分數: ' + ${school.score}">分數</p>
+                    <p th:if="${school.specialChoice}" class="special-choice">特佳選擇</p>
+                </li>
+            </ul>
+        </div>
+        
+        
+    </main>
+</body>
+</html>
+
+
+
+

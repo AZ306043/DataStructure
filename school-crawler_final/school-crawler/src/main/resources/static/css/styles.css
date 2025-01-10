@@ -1,0 +1,50 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa; /* 淺灰背景，讓內容更突出 */
+    color: #333;
+    margin: 20px;
+}
+
+h1 {
+    color: #0056b3; /* 使用更明顯的顏色讓標題更吸引 */
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#results {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加陰影讓內容更加立體 */
+}
+
+#results ul {
+    list-style-type: none; /* 移除默認樣式 */
+    padding: 0;
+}
+
+#results li {
+    background-color: #e9ecef; /* 更淡的灰色背景 */
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease; /* 添加滑順的背景顏色變化 */
+}
+
+#results li:hover {
+    background-color: #dee2e6; /* 滑鼠懸停變色效果 */
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+

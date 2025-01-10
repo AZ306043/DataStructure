@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>補YerMoore補習班搜尋系統</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        main {
+            padding: 2rem;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        label {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        select, input[type="text"] {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        input[type="text"] {
+            font-size: 1rem;
+        }
+
+        .additional-input {
+            display: none;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.1rem;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            body {
+                padding: 0;
+            }
+
+            header {
+                padding: 0.5rem;
+            }
+
+            form {
+                padding: 1.5rem;
+            }
+
+            label {
+                font-size: 0.9rem;
+            }
+
+            select, input[type="text"], button {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 0.5rem;
+            }
+
+            form {
+                padding: 1rem;
+            }
+
+            label {
+                font-size: 0.8rem;
+            }
+
+            select, input[type="text"], button {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>補YerMoore補習班搜尋系統</h1>
+    </header>
+    <main>
+        <form action="/search/results" method="get">
+            <label for="city">選擇地區：</label>
+            <select id="city" name="city" onchange="toggleAdditionalInput('city', 'city-other')">
+                <option value="">請選擇地區</option>
+                <option value="台北市">台北市</option>
+                <option value="新北市">新北市</option>
+                <option value="台中市">台中市</option>
+                <option value="台南市">台南市</option>
+                <option value="高雄市">高雄市</option>
+                <option value="其他">其他</option>
+            </select>
+            <input id="city-other" class="additional-input" type="text" name="customCity" placeholder="請輸入其他地區">
+
+            <label for="subject">選擇科目：</label>
+            <select id="subject" name="subject" onchange="toggleAdditionalInput('subject', 'subject-other')">
+                <option value="">請選擇科目</option>
+                <option value="國文">國文</option>
+                <option value="數學">數學</option>
+                <option value="英文">英文</option>
+                <option value="物理">物理</option>
+                <option value="化學">化學</option>
+                <option value="其他">其他</option>
+            </select>
+            <input id="subject-other" class="additional-input" type="text" name="customSubject" placeholder="請輸入其他科目">
+
+            <label for="other">其他條件：</label>
+            <input id="other" type="text" name="other" placeholder="例如：詳細地區(大安、北車)、課程時段等，請將不同關鍵字用,隔開" style="white-space: pre-wrap;">
+
+            <button type="submit">搜尋</button>
+        </form>
+    </main>
+
+    <script>
+        function toggleAdditionalInput(selectId, inputId) {
+            const selectedValue = document.getElementById(selectId).value;
+            const inputField = document.getElementById(inputId);
+            if (selectedValue === "其他") {
+                inputField.style.display = "block";
+            } else {
+                inputField.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
